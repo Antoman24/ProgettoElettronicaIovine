@@ -1,30 +1,36 @@
-# 📦 Sistema Informativo Aziendale – Elettronica Iovine srl
+# Sistema Informativo Aziendale – Elettronica Iovine srl
 
 Questo progetto documenta lo sviluppo di una piattaforma web realizzata come traccia d’esame per un corso di sistemi informativi.  
 L’obiettivo è progettare e implementare un **sistema integrato** basato su un **database relazionale (SQL)** per supportare i principali servizi aziendali di **Elettronica Iovine srl**, operante nel settore della vendita e assistenza di prodotti elettronici e informatici.
 
 ---
-## ⚙️ Tecnologie Utilizzate
+## Tecnologie Utilizzate
 
-### 🔙 Backend
+### Backend
 - **Python** – Linguaggio principale del progetto  
 - **Django** – Framework per la gestione della logica, sicurezza e routing lato server  
 - **Pillow** – Libreria per la gestione di immagini utente
 
-### 🗄️ Database
+###  Database
 - **SQLite** (in locale, semplice da configurare)
 
-### 🎨 Frontend
+### Frontend
 - **HTML/CSS** – Utilizzati per costruire l’interfaccia utente
 
+### Varie ed eventuali
+- **SHA256** (hashing password)
+- **Git+GitHub** (versionamento codice)
 ---
 
-## 🚀 Clonazione e Avvio del Progetto
+## Clonazione e Avvio del Progetto
 
 ```bash
 # Clona il repository
 git clone https://github.com/Antoman24/ProgettoElettronicaIovine
 cd ProgettoElettronicaIovine
+
+# Crea e attiva un ambiente virtuale
+python -m venv venv
 
 # Installa le dipendenze
 pip install -r requirements.txt
@@ -43,16 +49,16 @@ http://127.0.0.1:8000/
 ## Obiettivi del Progetto
 La piattaforma è stata concepita per offrire un ambiente centralizzato e modulare in grado di gestire:
 
-🛒 E-commerce
+E-commerce
 Gestione completa del catalogo prodotti, carrello, ordini e acquisti online.
 
-🛠️ Assistenza Clienti
+Assistenza Clienti
 Sistema ticketing per la segnalazione di guasti o richieste di supporto tecnico.
 
-🔐 Area Riservata
+Area Riservata
 Accesso limitato al personale autorizzato per la gestione dei prodotti, clienti, ordini e interventi di assistenza.
 ipologie di Utenti e Funzionalità
-# 👤 Clienti
+# Clienti
 Visualizzazione e acquisto dei prodotti disponibili
 
 * Apertura ticket di assistenza tecnica
@@ -61,21 +67,21 @@ Visualizzazione e acquisto dei prodotti disponibili
 
 * Inserimento di recensioni sugli interventi ricevuti
 
-🔐 Credenziali utenti demo
+ Credenziali utenti demo
 | Nome          | Email                                                   | Password  |
 | ------------- | ------------------------------------------------------- | --------- |
 | Mario Rossi   | [mario.rossi@email.it](mailto:mario.rossi@email.it)     | `pass123` |
 | Luigi Bianchi | [luigi.bianchi@email.it](mailto:luigi.bianchi@email.it) | `pass456` |
 | Anna Verdi    | [anna.verdi@email.it](mailto:anna.verdi@email.it)       | `pass789` |
 
-# 🔧 Tecnici
+# Tecnici
 * Aggiunta/rimozione prodotti dal catalogo e-commerce
 
 * Presa in carico dei ticket di assistenza
 
 * Accesso alle informazioni sugli ordini e sui clienti
 
-🔐 Credenziali utenti demo
+ Credenziali utenti demo
 | Nome             | Email                                                         | Password   |
 | ---------------- | ------------------------------------------------------------- | ---------- |
 | Giuseppe Ferrari | [giuseppe.ferrari@email.it](mailto:giuseppe.ferrari@email.it) | `admin123` |
