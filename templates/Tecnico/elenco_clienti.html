@@ -1,10 +1,195 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elenco Clienti - Elettronica Iovine</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background-color: #1a4d80;
+            color: white;
+            padding: 15px 0;
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        h1 {
+            margin: 0;
+        }
+        .user-info {
+            display: flex;
+            align-items: center;
+        }
+        .welcome {
+            margin-right: 20px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: white;
+            color: #1a4d80;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .btn:hover {
+            background-color: #f0f0f0;
+        }
+        .content {
+            margin-top: 30px;
+        }
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #1a4d80;
+            margin-top: 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f7ff;
+            color: #1a4d80;
+            font-weight: bold;
+        }
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+        .search-bar {
+            margin-bottom: 20px;
+            display: flex;
+        }
+        .search-bar input {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px 0 0 4px;
+            font-size: 16px;
+        }
+        .search-bar button {
+            padding: 10px 15px;
+            background-color: #1a4d80;
+            color: white;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .pagination a {
+            margin: 0 5px;
+            padding: 8px 12px;
+            background-color: #f0f0f0;
+            color: #1a4d80;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .pagination a.active {
+            background-color: #1a4d80;
+            color: white;
+        }
+        .back-link {
+            margin-bottom: 20px;
+            display: block;
+        }
+    </style>
 </head>
 <body>
-$END$
+    <header>
+        <div class="header-content container">
+            <h1>Elettronica Iovine</h1>
+            <div class="user-info">
+                <span class="welcome">Benvenuto, {{ utente.nome }} {{ utente.cognome }}</span>
+                <a href="{% url 'tecnico_login' %}" class="btn">Logout</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container content">
+        <a href="{% url 'homepage_tecnico' %}" class="back-link btn">← Torna alla Dashboard</a>
+
+        <div class="card">
+            <h2>Elenco Clienti</h2>
+            <p>Lista completa di tutti i clienti registrati nel sistema.</p>
+
+            <div class="search-bar">
+            <form method="GET" action="{% url 'elenco_clienti' %}" style="display: flex; width: 100%;">
+                <input type="text" name="q" placeholder="Cerca cliente per nome, cognome o email..." value="{{ query|default:'' }}">
+                <button type="submit">Cerca</button>
+            </form>
+        </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Cognome</th>
+                        <th>Email</th>
+                        <th>Residenza</th>
+                        <th>Saldo</th>
+                        <th>Azioni</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for cliente in clienti %}
+                    <tr>
+                        <td>{{ cliente.nome }}</td>
+                        <td>{{ cliente.cognome }}</td>
+                        <td>{{ cliente.email }}</td>
+                        <td>{{ cliente.residenza }}</td>
+                        <td>€ {{ cliente.saldo|floatformat:2 }}</td>
+                        <td>
+                            <a href="#" class="btn">Dettagli</a>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="6" style="text-align: center;">Nessun cliente trovato</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <div class="pagination">
+                <a href="#">&laquo;</a>
+                <a href="#" class="active">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">&raquo;</a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

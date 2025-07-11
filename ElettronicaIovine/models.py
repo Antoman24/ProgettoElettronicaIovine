@@ -1,33 +1,36 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django.core.validators import MinValueValidator, MaxValueValidator
+from decimal import Decimal
 
 
-class User(models.Model):
+class Utente(models.Model):
     class TipoUtente(models.TextChoices):
         CLIENTE = 'Cliente', _('Cliente')
         TECNICO = 'Tecnico', _('Tecnico')
 
-    id_user = models.AutoField(primary_key=True)
+    id_utente = models.AutoField(primary_key=True)
     nome = models.CharField(max_length=100)
     cognome = models.CharField(max_length=100)
     email = models.EmailField(unique=True)
     password = models.CharField(max_length=100)
-    tel = models.CharField(max_length=20, unique=True )
+    tel = models.CharField(max_length=20, unique=True)
     tipo = models.CharField(
         max_length=10,
         choices=TipoUtente.choices,
         default=TipoUtente.CLIENTE
     )
-    saldo = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True )
+    saldo = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
     residenza = models.CharField(max_length=200, null=True, blank=True)
     specializzazione = models.CharField(max_length=100, null=True, blank=True)
 
+    def __str__(self):
+        return f"{self.nome} {self.cognome}"
 
 
 class Recensione(models.Model):
-    id_cliente = models.ForeignKey(User, on_delete=models.CASCADE, related_name='recensioni_date')
-    id_tecnico = models.ForeignKey(User, on_delete=models.CASCADE, related_name='recensioni_ricevute')
+    id_cliente = models.ForeignKey(Utente, on_delete=models.CASCADE, related_name='recensioni_date')
+    id_tecnico = models.ForeignKey(Utente, on_delete=models.CASCADE, related_name='recensioni_ricevute')
     voto = models.IntegerField(
         validators=[
             MinValueValidator(1, message="Il voto deve essere almeno 1"),
@@ -40,26 +43,24 @@ class Recensione(models.Model):
         unique_together = ('id_cliente', 'id_tecnico')
 
 
-
 class Assistenza(models.Model):
     class StatoAssistenza(models.TextChoices):
         ACCOLTO = 'Accolto', _('Accolto')
         IN_LAVORAZIONE = 'In lavorazione', _('In lavorazione')
         DA_RITIRARE = 'Da ritirare', _('Da ritirare')
 
-    id_cliente = models.ForeignKey(User, on_delete=models.CASCADE, related_name='assistenze_richieste')
-    tecnico = models.ForeignKey(User, on_delete=models.CASCADE, related_name='assistenze_fornite')
+    id_cliente = models.ForeignKey(Utente, on_delete=models.CASCADE, related_name='assistenze_richieste')
+    id_tecnico = models.ForeignKey(Utente, on_delete=models.CASCADE, related_name='assistenze_fornite', null=True, blank=True)
     stato = models.CharField(max_length=20, choices=StatoAssistenza.choices, default=StatoAssistenza.ACCOLTO)
     data = models.DateTimeField(auto_now_add=True)
     intestazione = models.CharField(max_length=200)
     descrizione = models.TextField(null=True, blank=True)
 
 
-
 class ProdottoAcquistabile(models.Model):
     id_prodotto = models.AutoField(primary_key=True)
-    nome = models.CharField(max_length=200 )
-    immagine = models.ImageField(upload_to='prodotti/')
+    nome = models.CharField(max_length=200)
+    immagine = models.ImageField(upload_to='media/')
     descrizione = models.TextField(null=True, blank=True)
     prezzo = models.DecimalField(
         max_digits=10,
@@ -69,9 +70,10 @@ class ProdottoAcquistabile(models.Model):
     quantita_rimasta = models.PositiveIntegerField(
         validators=[MinValueValidator(0, message="La quantità non può essere negativa")]
     )
-    id_tecnico = models.ForeignKey(User, on_delete=models.CASCADE, related_name='prodotti')
+    id_tecnico = models.ForeignKey(Utente, on_delete=models.CASCADE, related_name='prodotti')
 
-
+    def __str__(self):
+        return self.nome
 
 
 class Ordine(models.Model):
@@ -89,8 +91,7 @@ class Ordine(models.Model):
     )
     data_ordine = models.DateTimeField(auto_now_add=True)
     prezzo_totale = models.DecimalField(max_digits=10, decimal_places=2)
-    id_user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='ordini')
-
+    id_cliente = models.ForeignKey(Utente, on_delete=models.CASCADE, related_name='ordini')
 
 
 class DettaglioOrdine(models.Model):
@@ -101,4 +102,3 @@ class DettaglioOrdine(models.Model):
 
     class Meta:
         unique_together = ('id_prodotto', 'id_ordine')
-

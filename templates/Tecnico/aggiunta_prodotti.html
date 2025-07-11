@@ -1,10 +1,257 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aggiungi Prodotto - Elettronica Iovine</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background-color: #1a4d80;
+            color: white;
+            padding: 15px 0;
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        h1 {
+            margin: 0;
+        }
+        .btn {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: white;
+            color: #1a4d80;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            margin: 5px;
+        }
+        .btn:hover {
+            background-color: #f0f0f0;
+        }
+        .btn-primary {
+            background-color: #1a4d80;
+            color: white;
+        }
+        .btn-primary:hover {
+            background-color: #153d68;
+        }
+        .content {
+            margin-top: 30px;
+        }
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #1a4d80;
+            margin-top: 0;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="number"],
+        input[type="file"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+        }
+        .error-message {
+            color: #e74c3c;
+            margin-top: 5px;
+            font-size: 0.9em;
+        }
+        .success-message {
+            color: #27ae60;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #e8f9f0;
+            border-radius: 4px;
+            border-left: 3px solid #27ae60;
+        }
+    </style>
 </head>
 <body>
-$END$
+    <header>
+        <div class="header-content container">
+            <h1>Elettronica Iovine</h1>
+            <div>
+                <a href="{% url 'homepage_tecnico' %}" class="btn">Dashboard</a>
+                <a href="{% url 'tecnico_login' %}" class="btn">Logout</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container content">
+        <div class="card">
+            <h2>Aggiungi Nuovo Prodotto</h2>
+
+            {% if success_message %}
+            <div class="success-message">
+                {{ success_message }}
+            </div>
+            {% endif %}
+
+            <form method="POST" enctype="multipart/form-data" action="{% url 'aggiungi_prodotto' %}">
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <label for="nome">Nome Prodotto*</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="prezzo">Prezzo (€)*</label>
+                    <input type="number" id="prezzo" name="prezzo" step="0.01" min="0" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="quantita_rimasta">Quantità Disponibile*</label>
+                    <input type="number" id="quantita_rimasta" name="quantita_rimasta" min="0" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="descrizione">Descrizione Prodotto*</label>
+                    <textarea id="descrizione" name="descrizione" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="immagine">Immagine Prodotto</label>
+                    <input type="file" id="immagine" name="immagine" accept="image/*">
+                    <small>Formati supportati: JPG, PNG, GIF. Dimensione massima: 5MB</small>
+                </div>
+
+                <div class="form-actions">
+                    <a href="{% url 'prodotti_acquistabili_tecnici' %}" class="btn">Annulla</a>
+                    <button type="submit" class="btn btn-primary">Salva Prodotto</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Validazione form lato client
+        document.querySelector('form').addEventListener('submit', function(e) {
+            let valid = true;
+
+            // Validazione nome
+            const nome = document.getElementById('nome').value.trim();
+            if (nome.length < 3) {
+                valid = false;
+                showError('nome', 'Il nome deve contenere almeno 3 caratteri');
+            } else {
+                clearError('nome');
+            }
+
+            // Validazione prezzo
+            const prezzo = document.getElementById('prezzo').value;
+            if (prezzo <= 0) {
+                valid = false;
+                showError('prezzo', 'Il prezzo deve essere maggiore di 0');
+            } else {
+                clearError('prezzo');
+            }
+
+            // Validazione quantità
+            const quantita = document.getElementById('quantita_rimasta').value;
+            if (quantita < 0) {
+                valid = false;
+                showError('quantita_rimasta', 'La quantità non può essere negativa');
+            } else {
+                clearError('quantita_rimasta');
+            }
+
+            // Validazione descrizione
+            const descrizione = document.getElementById('descrizione').value.trim();
+            if (descrizione.length < 10) {
+                valid = false;
+                showError('descrizione', 'La descrizione deve contenere almeno 10 caratteri');
+            } else {
+                clearError('descrizione');
+            }
+
+            // Validazione immagine
+            const immagine = document.getElementById('immagine').files[0];
+            if (immagine) {
+                const validTypes = ['image/jpeg', 'image/png', 'image/gif'];
+                const maxSize = 5 * 1024 * 1024; // 5MB
+
+                if (!validTypes.includes(immagine.type)) {
+                    valid = false;
+                    showError('immagine', 'Formato immagine non supportato');
+                } else if (immagine.size > maxSize) {
+                    valid = false;
+                    showError('immagine', 'L\'immagine supera la dimensione massima di 5MB');
+                } else {
+                    clearError('immagine');
+                }
+            }
+
+            if (!valid) {
+                e.preventDefault();
+            }
+        });
+
+        function showError(fieldId, message) {
+            const field = document.getElementById(fieldId);
+            let errorDiv = field.parentNode.querySelector('.error-message');
+
+            if (!errorDiv) {
+                errorDiv = document.createElement('div');
+                errorDiv.className = 'error-message';
+                field.parentNode.appendChild(errorDiv);
+            }
+
+            errorDiv.textContent = message;
+        }
+
+        function clearError(fieldId) {
+            const field = document.getElementById(fieldId);
+            const errorDiv = field.parentNode.querySelector('.error-message');
+
+            if (errorDiv) {
+                errorDiv.remove();
+            }
+        }
+    </script>
 </body>
 </html>

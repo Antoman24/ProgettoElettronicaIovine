@@ -4,21 +4,66 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d7c1af72-447d-4a88-8f6b-b1a11897dce8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/ProgettoElettronicaIovine.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="d7c1af72-447d-4a88-8f6b-b1a11897dce8" name="Changes" comment="creazione models e db">
+      <change afterPath="$PROJECT_DIR$/media/media/metaquest3.jfif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/media/pclenovo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/media/ps5slim.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/media/tvsony.jfif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Cliente/assistenza.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Cliente/carrello.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Cliente/cliente_login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Cliente/homepage_cliente.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Cliente/prodotti_acquistabili_cliente.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Cliente/profilo_cliente.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Tecnico/aggiunta_prodotti.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Tecnico/elenco_clienti.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Tecnico/homepage_tecnico.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Tecnico/recensioni_ricevute.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Tecnico/richieste_ricevute.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Tecnico/tecnico_login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ProgettoElettronicaIovine.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ProgettoElettronicaIovine.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ElettronicaIovine/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/ElettronicaIovine/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ElettronicaIovine/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/ElettronicaIovine/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProgettoElettronicaIovine/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ProgettoElettronicaIovine/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProgettoElettronicaIovine/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/ProgettoElettronicaIovine/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Antoman24"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Antoman24/ProgettoElettronicaIovine.git",
+    "accountId": "2b1303cd-caaf-4aa8-98fb-dce45d30dc2c"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -29,20 +74,35 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;Django Server.ProgettoElettronicaIovine.executor&quot;: &quot;Run&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.pycharm.django.structure.promotion.once.per.project&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/anton/PycharmProjects/ProgettoElettronicaIovine/media/media&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\anton\PycharmProjects\ProgettoElettronicaIovine\media\media" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\anton\PycharmProjects\ProgettoElettronicaIovine\media\media" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="ProgettoElettronicaIovine" type="Python.DjangoServer" factoryName="Django server">
       <module name="ProgettoElettronicaIovine" />
@@ -86,11 +146,55 @@
       <option name="presentableId" value="Default" />
       <updated>1750787353150</updated>
       <workItem from="1750787354547" duration="769000" />
-      <workItem from="1750804871501" duration="2426000" />
+      <workItem from="1750804871501" duration="2552000" />
+      <workItem from="1750839676232" duration="9116000" />
+      <workItem from="1750854410729" duration="397000" />
+      <workItem from="1750854841441" duration="742000" />
+      <workItem from="1750855632045" duration="16200000" />
+      <workItem from="1750938478777" duration="224000" />
+      <workItem from="1751299813804" duration="65000" />
+      <workItem from="1751301566465" duration="45000" />
+      <workItem from="1751477620273" duration="5736000" />
+      <workItem from="1751488379967" duration="6933000" />
+      <workItem from="1751531164260" duration="6174000" />
+      <workItem from="1751542993371" duration="6159000" />
+      <workItem from="1752241422224" duration="1454000" />
     </task>
+    <task id="LOCAL-00001" summary="creazione models e db">
+      <option name="closed" value="true" />
+      <created>1750807860229</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1750807860229</updated>
+    </task>
+    <task id="LOCAL-00002" summary="creazione models e db">
+      <option name="closed" value="true" />
+      <created>1750807868350</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1750807868350</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="creazione models e db" />
+    <option name="LAST_COMMIT_MESSAGE" value="creazione models e db" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/ElettronicaIovine/models.py</url>
+          <line>66</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogo Prodotti - Elettronica Iovine</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f9;
+            color: #333;
+        }
+        header {
+            background-color: #1a4d80;
+            color: white;
+            padding: 10px 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .user-info {
+            display: flex;
+            align-items: center;
+        }
+        .welcome {
+            margin-right: 15px;
+        }
+        .content {
+            padding: 20px 0;
+        }
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #1a4d80;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #153c62;
+        }
+        .back-link {
+            margin-bottom: 20px;
+            display: block;
+        }
+        .search-bar {
+            margin: 20px 0;
+            display: flex;
+        }
+        .search-bar input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px 0 0 4px;
+        }
+        .search-bar button {
+            padding: 10px 15px;
+            background-color: #1a4d80;
+            color: white;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .product-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        .product-image {
+            width: 100%;
+            height: 200px;
+            background-color: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .product-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .product-details {
+            padding: 15px;
+        }
+        .product-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 0 0 10px 0;
+        }
+        .product-info {
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+        .product-price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #1a4d80;
+            margin: 10px 0;
+        }
+        .product-availability {
+            font-size: 14px;
+            color: #28a745;
+            margin-bottom: 10px;
+        }
+        .product-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.4);
+        }
+        .modal-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 20px;
+            border-radius: 8px;
+            width: 60%;
+            max-width: 600px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover {
+            color: black;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .form-actions {
+            text-align: right;
+            margin-top: 20px;
+        }
+        .product-not-available {
+            color: #dc3545;
+        }
+        .pagination {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .pagination a {
+            margin: 0 5px;
+            padding: 8px 12px;
+            background-color: #f0f0f0;
+            color: #1a4d80;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .pagination a.active {
+            background-color: #1a4d80;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content container">
+            <h1>Elettronica Iovine</h1>
+            <div class="user-info">
+                <span class="welcome">Benvenuto, {{ utente.nome }} {{ utente.cognome }}</span>
+                <a href="{% url 'tecnico_login' %}" class="btn">Logout</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container content">
+        <a href="{% url 'homepage_tecnico' %}" class="back-link btn">← Torna alla Dashboard</a>
+
+        <div class="card">
+            <h2>Catalogo Prodotti</h2>
+            <p>Visualizza e modifica i prodotti disponibili nel catalogo.</p>
+
+
+
+            <div class="search-bar">
+                <form method="GET" action="{% url 'prodotti_acquistabili_tecnici' %}" style="display: flex; width: 100%;">
+                    <input type="text" name="q" placeholder="Cerca prodotto per nome, marca o categoria..." value="{{ query|default:'' }}">
+                    <button type="submit">Cerca</button>
+                </form>
+            </div>
+
+            <div class="products-grid">
+                {% for prodotto in prodotti %}
+                <div class="product-card">
+                    <div class="product-image">
+                        {% if prodotto.immagine %}
+                            <img src="{{ prodotto.immagine.url }}" alt="{{ prodotto.nome }}">
+                        {% else %}
+                            <img src="https://via.placeholder.com/300x200?text=Nessuna+Immagine" alt="Nessuna immagine">
+                        {% endif %}
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title">{{ prodotto.nome }}</h3>
+                        <div class="product-info">Quantità: {{ prodotto.quantita_rimasta }}</div>
+                        <div class="product-info"> {{ prodotto.descrizione }}</div>
+                        <div class="product-price">€ {{ prodotto.prezzo|floatformat:2 }}</div>
+                        {% if prodotto.quantita_rimasta > 0 %}
+                            <div class="product-availability">Disponibile ({{ prodotto.quantita_rimasta }} in magazzino)</div>
+                        {% else %}
+                            <div class="product-availability product-not-available">Non disponibile</div>
+                        {% endif %}
+                        <div class="product-actions">
+                            <button class="btn" style="background-color: #dc3545;" onclick="confirmDelete({{ prodotto.id_prodotto }})">Elimina</button>
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                <div style="grid-column: 1 / -1; text-align: center; padding: 50px; background-color: white; border-radius: 8px;">
+                    <h3>Nessun prodotto trovato</h3>
+                    <p>Non ci sono prodotti corrispondenti ai criteri di ricerca o il catalogo è vuoto.</p>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="pagination">
+                <a href="#">&laquo;</a>
+                <a href="#" class="active">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">&raquo;</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal per modifica prodotto -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeEditModal()">&times;</span>
+            <h2>Modifica Prodotto</h2>
+            <form id="editForm" method="POST" action="{% url 'modifica_prodotto' 0 %}">
+                {% csrf_token %}
+                <input type="hidden" id="edit_id_prodotto" name="id_prodotto">
+                <div class="form-group">
+                    <label for="edit_nome">Nome Prodotto*</label>
+                    <input type="text" id="edit_nome" name="nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit_marca">Marca*</label>
+                    <input type="text" id="edit_marca" name="marca" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit_categoria">Categoria*</label>
+                    <input type="text" id="edit_categoria" name="categoria" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit_prezzo">Prezzo (€)*</label>
+                    <input type="number" id="edit_prezzo" name="prezzo" step="0.01" min="0" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit_quantita">Quantità Disponibile*</label>
+                    <input type="number" id="edit_quantita" name="quantita" min="0" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit_descrizione">Descrizione</label>
+                    <textarea id="edit_descrizione" name="descrizione" rows="4"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn" style="background-color: #6c757d;" onclick="closeEditModal()">Annulla</button>
+                    <button type="submit" class="btn">Salva Modifiche</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Modal di modifica
+        var modal = document.getElementById("editModal");
+
+        function openEditModal(id, nome, marca, categoria, prezzo, quantita, descrizione) {
+            document.getElementById("edit_id_prodotto").value = id;
+            document.getElementById("edit_nome").value = nome;
+            document.getElementById("edit_marca").value = marca;
+            document.getElementById("edit_categoria").value = categoria;
+            document.getElementById("edit_prezzo").value = prezzo;
+            document.getElementById("edit_quantita").value = quantita;
+            document.getElementById("edit_descrizione").value = descrizione;
+
+            // Aggiorna l'action del form con l'ID corretto
+            document.getElementById("editForm").action = "{% url 'modifica_prodotto' 0 %}".replace("0", id);
+
+            modal.style.display = "block";
+        }
+
+        function closeEditModal() {
+            modal.style.display = "none";
+        }
+
+        // Chiudi modal se si clicca fuori
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeEditModal();
+            }
+        }
+
+        // Conferma eliminazione
+        function confirmDelete(id) {
+            if (confirm("Sei sicuro di voler eliminare questo prodotto?")) {
+                window.location.href = "{% url 'elimina_prodotto' 0 %}".replace("0", id);
+            }
+        }
+    </script>
+</body>
+</html>

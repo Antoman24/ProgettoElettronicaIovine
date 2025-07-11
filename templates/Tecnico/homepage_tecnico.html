@@ -1,10 +1,161 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area Tecnico - Elettronica Iovine</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background-color: #1a4d80;
+            color: white;
+            padding: 15px 0;
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        h1 {
+            margin: 0;
+        }
+        .user-info {
+            display: flex;
+            align-items: center;
+        }
+        .welcome {
+            margin-right: 20px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: white;
+            color: #1a4d80;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            margin: 5px;
+        }
+        .btn:hover {
+            background-color: #f0f0f0;
+        }
+        .btn-primary {
+            background-color: #1a4d80;
+            color: white;
+        }
+        .btn-primary:hover {
+            background-color: #153d68;
+        }
+        .content {
+            margin-top: 30px;
+        }
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #1a4d80;
+            margin-top: 0;
+        }
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        .dashboard-grid .card {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .card-actions {
+            margin-top: auto;
+            padding-top: 15px;
+        }
+    </style>
 </head>
 <body>
-$END$
+    <header>
+        <div class="header-content container">
+            <h1>Elettronica Iovine</h1>
+            <div class="user-info">
+                <span class="welcome">Benvenuto, {{ utente.nome }} {{ utente.cognome }}</span>
+                <a href="{% url 'tecnico_login' %}" class="btn">Logout</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container content">
+        <div class="card">
+            <h2>Dashboard Tecnico</h2>
+            <p>Benvenuto nella tua area tecnica. Gestisci le richieste di assistenza, i prodotti, i clienti e visualizza le recensioni.</p>
+        </div>
+
+        <div class="dashboard-grid">
+            <div class="card">
+                <h2>Richieste di Assistenza</h2>
+                <p>Visualizza e gestisci le richieste di assistenza tecnica dei clienti.</p>
+                <div class="card-actions">
+                    <a href="{% url 'richieste_ricevute' %}" class="btn btn-primary">Tutte le richieste</a>
+                    <a href="#" class="btn">Nuove richieste</a>
+                    <a href="#" class="btn">In lavorazione</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Gestione Prodotti</h2>
+                <p>Aggiungi, modifica e visualizza i prodotti disponibili nel catalogo.</p>
+                <div class="card-actions">
+                    <a href="{% url 'aggiungi_prodotto' %}" class="btn btn-primary">Aggiungi prodotto</a>
+                    <a href="{% url 'prodotti_acquistabili_tecnici' %}" class="btn">Catalogo prodotti</a>
+
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Clienti</h2>
+                <p>Visualizza l'elenco dei clienti registrati e le loro informazioni.</p>
+                <div class="card-actions">
+                    <a href="{% url 'elenco_clienti' %}" class="btn btn-primary">Elenco clienti</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Recensioni</h2>
+                <p>Controlla le recensioni e i feedback ricevuti dai clienti sui tuoi servizi.</p>
+                <div class="card-actions">
+                    <a href="{% url 'recensioni_ricevute' %}" class="btn btn-primary">Tutte le recensioni</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Statistiche</h2>
+            <p>Riepilogo delle tue attività recenti</p>
+            <ul>
+                <li>Richieste in attesa: <strong>0</strong></li>
+                <li>Richieste in lavorazione: <strong>0</strong></li>
+                <li>Prodotti gestiti: <strong>0</strong></li>
+                <li>Valutazione media: <strong>N/A</strong></li>
+            </ul>
+        </div>
+    </div>
 </body>
 </html>
