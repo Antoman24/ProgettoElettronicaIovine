@@ -5,34 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d7c1af72-447d-4a88-8f6b-b1a11897dce8" name="Changes" comment="creazione models e db">
-      <change afterPath="$PROJECT_DIR$/media/media/metaquest3.jfif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/media/pclenovo.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/media/ps5slim.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/media/tvsony.jfif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Cliente/assistenza.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Cliente/carrello.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Cliente/cliente_login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Cliente/homepage_cliente.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Cliente/prodotti_acquistabili_cliente.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Cliente/profilo_cliente.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Tecnico/aggiunta_prodotti.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Tecnico/elenco_clienti.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Tecnico/homepage_tecnico.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Tecnico/recensioni_ricevute.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Tecnico/richieste_ricevute.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Tecnico/tecnico_login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ProgettoElettronicaIovine.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ProgettoElettronicaIovine.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ElettronicaIovine/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/ElettronicaIovine/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ElettronicaIovine/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/ElettronicaIovine/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProgettoElettronicaIovine/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ProgettoElettronicaIovine/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProgettoElettronicaIovine/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/ProgettoElettronicaIovine/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,18 +25,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Antoman24"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Antoman24&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Antoman24/ProgettoElettronicaIovine.git",
-    "accountId": "2b1303cd-caaf-4aa8-98fb-dce45d30dc2c"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Antoman24/ProgettoElettronicaIovine.git&quot;,
+    &quot;accountId&quot;: &quot;2b1303cd-caaf-4aa8-98fb-dce45d30dc2c&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -158,7 +131,8 @@
       <workItem from="1751488379967" duration="6933000" />
       <workItem from="1751531164260" duration="6174000" />
       <workItem from="1751542993371" duration="6159000" />
-      <workItem from="1752241422224" duration="1454000" />
+      <workItem from="1752241422224" duration="5531000" />
+      <workItem from="1752251422839" duration="891000" />
     </task>
     <task id="LOCAL-00001" summary="creazione models e db">
       <option name="closed" value="true" />
