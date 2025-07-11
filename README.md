@@ -46,6 +46,11 @@ python manage.py runserver
 Il progetto sarà disponibile all’indirizzo:
 http://127.0.0.1:8000/
 
+## Pagina iniziale
+Se il processo ha restituito un esito positivo, la piattaforma dovrebbe presentarsi:
+<img width="1004" height="410" alt="image" src="https://github.com/user-attachments/assets/2486bd01-28b5-4816-ba3c-6afdd89b75a8" />
+
+
 ## Obiettivi del Progetto
 La piattaforma è stata concepita per offrire un ambiente centralizzato e modulare in grado di gestire:
 
@@ -59,7 +64,9 @@ Area Riservata
 Accesso limitato al personale autorizzato per la gestione dei prodotti, clienti, ordini e interventi di assistenza.
 ipologie di Utenti e Funzionalità
 # Clienti
-Visualizzazione e acquisto dei prodotti disponibili
+<img width="756" height="396" alt="image" src="https://github.com/user-attachments/assets/bcf8c349-a840-4553-92ee-7a2ee5cb63e2" />
+
+* Visualizzazione e acquisto dei prodotti disponibili
 
 * Apertura ticket di assistenza tecnica
 
@@ -75,6 +82,8 @@ Visualizzazione e acquisto dei prodotti disponibili
 | Anna Verdi    | [anna.verdi@email.it](mailto:anna.verdi@email.it)       | `pass789` |
 
 # Tecnici
+<img width="631" height="609" alt="image" src="https://github.com/user-attachments/assets/bece6590-8031-48fc-a7ce-43e24f83e032" />
+
 * Aggiunta/rimozione prodotti dal catalogo e-commerce
 
 * Presa in carico dei ticket di assistenza
