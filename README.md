@@ -85,3 +85,7 @@ Visualizzazione e acquisto dei prodotti disponibili
 
 Tutte le credenziali fornite sono a scopo dimostrativo e possono essere modificate nel database.
 
+## 📄 Licenza
+
+Questo progetto è rilasciato sotto licenza [MIT](LICENSE).
+
