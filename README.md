@@ -52,14 +52,14 @@ Sistema ticketing per la segnalazione di guasti o richieste di supporto tecnico.
 🔐 Area Riservata
 Accesso limitato al personale autorizzato per la gestione dei prodotti, clienti, ordini e interventi di assistenza.
 ipologie di Utenti e Funzionalità
-👤 Clienti
+# 👤 Clienti
 Visualizzazione e acquisto dei prodotti disponibili
 
-Apertura ticket di assistenza tecnica
+* Apertura ticket di assistenza tecnica
 
-Accesso ai dati personali e saldo disponibile
+* Accesso ai dati personali e saldo disponibile
 
-Inserimento di recensioni sugli interventi ricevuti
+* Inserimento di recensioni sugli interventi ricevuti
 
 🔐 Credenziali utenti demo
 | Nome          | Email                                                   | Password  |
@@ -68,12 +68,12 @@ Inserimento di recensioni sugli interventi ricevuti
 | Luigi Bianchi | [luigi.bianchi@email.it](mailto:luigi.bianchi@email.it) | `pass456` |
 | Anna Verdi    | [anna.verdi@email.it](mailto:anna.verdi@email.it)       | `pass789` |
 
-🔧 Tecnici
-Aggiunta/rimozione prodotti dal catalogo e-commerce
+# 🔧 Tecnici
+* Aggiunta/rimozione prodotti dal catalogo e-commerce
 
-Presa in carico dei ticket di assistenza
+* Presa in carico dei ticket di assistenza
 
-Accesso alle informazioni sugli ordini e sui clienti
+* Accesso alle informazioni sugli ordini e sui clienti
 
 🔐 Credenziali utenti demo
 | Nome             | Email                                                         | Password   |
