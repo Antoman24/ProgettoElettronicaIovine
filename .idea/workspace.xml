@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d7c1af72-447d-4a88-8f6b-b1a11897dce8" name="Changes" comment="creazione models e db">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="d7c1af72-447d-4a88-8f6b-b1a11897dce8" name="Changes" comment="creazione models e db" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -132,7 +130,7 @@
       <workItem from="1751531164260" duration="6174000" />
       <workItem from="1751542993371" duration="6159000" />
       <workItem from="1752241422224" duration="5531000" />
-      <workItem from="1752251422839" duration="891000" />
+      <workItem from="1752251422839" duration="1002000" />
     </task>
     <task id="LOCAL-00001" summary="creazione models e db">
       <option name="closed" value="true" />
